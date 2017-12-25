@@ -6,6 +6,7 @@
         <fileset id="fileset" name="Spring Application Context" removed="false">
           <file>file://$MODULE_DIR$/src/main/java/knights/config/KnightConfig.java</file>
           <file>file://$MODULE_DIR$/src/main/java/knights/config/Knight.config</file>
+          <file>file://$MODULE_DIR$/src/main/java/soundsystem/CDPlayerConfig.java</file>
         </fileset>
       </configuration>
     </facet>

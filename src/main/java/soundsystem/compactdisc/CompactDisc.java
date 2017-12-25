@@ -1,4 +1,4 @@
-package soundsystem;
+package soundsystem.compactdisc;
 
 public interface CompactDisc {
     void play();
