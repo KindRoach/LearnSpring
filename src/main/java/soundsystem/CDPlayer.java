@@ -15,4 +15,8 @@ public class CDPlayer implements MediaPlayer {
     public void play() {
         cd.play();
     }
+
+    public CompactDisc getCD() {
+        return cd;
+    }
 }

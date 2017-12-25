@@ -25,5 +25,7 @@ public class CDPlayerTest {
     @Test
     public void play() {
         player.play();
+        // Only one CompactDisc is created by Spring.
+        System.out.println(cd == player.getCD());
     }
 }
