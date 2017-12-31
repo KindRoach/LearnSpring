@@ -3,10 +3,13 @@ package soundsystem;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import soundsystem.compactdisc.CompactDisc;
+import soundsystem.config.CDPlayerConfig;
 import soundsystem.mediaplayer.MediaPlayer;
+import soundsystem.mediaplayer.MultiCDPlayer;
 
 import static org.junit.Assert.assertNotNull;
 
@@ -16,12 +19,19 @@ public class CDPlayerTest {
 
     @Autowired
     private MediaPlayer player;
+
+    @Autowired
+    private MultiCDPlayer multiPlayer;
+
+    @Qualifier("blankDisc")
     @Autowired
     private CompactDisc cd;
 
     @Test
     public void cdShouldNotBeNull() {
         assertNotNull(cd);
+        assertNotNull(player);
+        assertNotNull(multiPlayer);
     }
 
     @Test
