@@ -9,7 +9,7 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(classes = DataConfig.class)
+@ContextConfiguration(locations = "classpath:Data.xml")
 public class DataReaderTest {
     @Autowired
     DataReader reader;
