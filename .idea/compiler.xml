@@ -14,7 +14,7 @@
     <bytecodeTargetLevel>
       <module name="KnightAndQuest" target="1.5" />
       <module name="Knights" target="1.5" />
-      <module name="LearnSpring" target="1.5" />
+      <module name="LearnSpring" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>
