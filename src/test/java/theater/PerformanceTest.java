@@ -32,8 +32,8 @@ public class PerformanceTest {
         actor.sing("B");
         actor.sing("B");
         actor.sing("C");
-        assertEquals(audience.getSongTimes("A"), 2);
-        assertEquals(audience.getSongTimes("B"), 2);
-        assertEquals(audience.getSongTimes("C"), 1);
+        assertEquals(2, audience.getSongTimes("A"));
+        assertEquals(2, audience.getSongTimes("B"));
+        assertEquals(1, audience.getSongTimes("C"));
     }
 }

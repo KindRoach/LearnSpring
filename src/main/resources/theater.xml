@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="
+            http://www.springframework.org/schema/beans
+            http://www.springframework.org/schema/beans/spring-beans.xsd
+            http://www.springframework.org/schema/aop
+            http://www.springframework.org/schema/aop/spring-aop.xsd">
+
+    <bean id="goodActor" class="theater.GoodActor"/>
+    <bean id="audience" class="theater.Audience"/>
+    <!--打开自动代理-->
+    <aop:aspectj-autoproxy/>
+    <!--通过bean配置aop都需要它作为最外层元素-->
+    <aop:config>
+        <!--定义切面-->
+        <aop:aspect id="audience_performance" ref="audience">
+            <!--定义切点-->
+            <aop:pointcut
+                    id="performance"
+                    expression="execution(* theater.Performance.perform(..))"/>
+            <!--定义通知-->
+            <aop:before pointcut-ref="performance" method="takeSeats"/>
+            <aop:before pointcut-ref="performance" method="silenceCellPhones"/>
+            <aop:after-returning pointcut-ref="performance" method="applause"/>
+            <aop:after-throwing pointcut-ref="performance" method="demandRefund"/>
+            <aop:around pointcut-ref="performance" method="watchPerformance"/>
+        </aop:aspect>
+
+        <!--一个切面只允许一个切点，固定翼第二个切面-->
+        <aop:aspect id="audience_sing" ref="audience">
+            <aop:pointcut
+                    id="sing"
+                    expression="execution(* theater.Performance.sing(String)) and args(songName)"/>
+            <!--带参数的通知-->
+            <aop:after-returning pointcut-ref="sing" method="countSong"/>
+        </aop:aspect>
+    </aop:config>
+
+</beans>

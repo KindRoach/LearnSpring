@@ -8,9 +8,6 @@ import java.util.Map;
 
 @Aspect
 public class Audience {
-
-    Map<String, Integer> songTimes = new HashMap<>();
-
     @Pointcut("execution(* theater.Performance.perform(..))")
     private void perform() {
     }
@@ -47,7 +44,9 @@ public class Audience {
         }
     }
 
-    @Pointcut("execution(* theater.Performance.sing(String)) && args(songName))")
+    Map<String, Integer> songTimes = new HashMap<>();
+
+    @Pointcut("execution(* theater.Performance.sing(String)) && args(songName)")
     private void sing(String songName) {
     }
 
